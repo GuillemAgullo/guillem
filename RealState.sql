@@ -12,10 +12,15 @@ DROP TABLE IF EXISTS doors;
 DROP TABLE IF EXISTS zip_codes;
 DROP TABLE IF EXISTS addresses;
 
-
+CREATE TABLE planets (
+    id_planets INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    planet VARCHAR(64)
+);
 CREATE TABLE countries (
     id_country INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    country VARCHAR(64)
+    country VARCHAR(64),
+    id_planet INT UNSIGNED,
+    FOREIGN KEY (id_planet) REFERENCES planets(id_planet)
 );
 
 CREATE TABLE cities(
